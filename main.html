@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-smart-table/2.1.8/smart-table.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.6.3/ui-grid.min.js"></script>
+    <script src="JavaScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+    <meta charset="utf-8" />
+	
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+    <h1 class="header">API Application</h1>
+    <div ng-app="apiApp" class="app">
+        <div ng-controller="apiController">
+
+            <span class="icons">
+                <i class="fa fa-plus-circle fa-2x" ng-click="addNote()"></i>
+            </span>
+            
+            <span>User : </span>
+            <input type="text" ng-model="userName" placeholder="enter user..">
+            <input type="text" ng-model="idMain" placeholder="enter id (optional)..">
+            <button ng-click="go(userName,idMain)">GO</button>
+
+        
+
+
+            <table st-table="objToDisplay"  class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Amount</th>
+                        <th>Currency</th>
+                        <th>Date</th>
+
+
+                    </tr>
+                   
+
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in objToDisplay">
+                        <td>{{row.id}}</td>
+                        <td>{{row.amount}}</td>
+                        <td>{{row.currency}}</td>
+                        <td>{{row.txn_date}}</td>
+
+                        <td>
+                            <i class="fa fa-trash-o fa-lg" ng-click="removeItem(row)"></i> 
+                        </td>
+                        <td>
+                            <i class="fa fa-pencil fa-lg" ng-click="EditNotes(row)"></i>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+        </div>
+</body>
+</html>
